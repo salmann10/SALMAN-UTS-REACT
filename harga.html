@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreshClean Laundry React</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+        <!-- link favicon -->
+        <link rel="shortcut icon" href="fc-logo.png" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  
+
+  <!-- Babel CDN for JSX support -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- React Component -->
+  <script type="text/babel">
+    const Navbar = () => {
+      return (
+        <nav className="navbar navbar-expand-lg navbar-light">
+          <div className="container-fluid d-flex justify-content-between align-items-center">
+            <a className="navbar-brand d-flex align-items-center" href="#">
+              <img src="fc-logo.png" alt="Logo FreshClean Laundry" height="24" className="me-2" />
+              <span className="fw-bold">FreshClean</span>
+            </a>
+
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                <li className="nav-item"><a className="nav-link active" href="index.html#home">Home</a></li>
+                <li className="nav-item"><a className="nav-link" href="index.html#about">Tentang Kami</a></li>
+                <li className="nav-item"><a className="nav-link" href="index.html#service">Layanan</a></li>
+                <li className="nav-item"><a className="nav-link" href="#hrg">Harga</a></li>
+                <li className="nav-item"><a className="nav-link" href="index.html#testi">Testimoni</a></li>
+                <li className="nav-item"><a className="nav-link" href="#galeri">Galeri</a></li>
+                <li className="nav-item"><a className="nav-link" href="index.html#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div className="d-none d-lg-block">
+              <a href="harga.html#pesan" className="btn btn-primary">Pesan Sekarang!</a>
+            </div>
+          </div>
+        </nav>
+      );
+    };
+
+   
+    const CardItem = ({ title, items }) => (
+        <div className="col">
+          <div className="card h-100 shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title text-center">{title}</h5>
+              <ul className="list-unstyled small">
+                {items.map((item, index) => (
+                  <li
+                    key={index}
+                    className="d-flex justify-content-between border-bottom pb-1 mb-2"
+                  >
+                    <span className="me-3">{item.name}</span>
+                    <span>{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+
+      const HargaSection = () => {
+        const data = {
+          "Layanan Harian": [
+            { name: "Cuci Kering & Lipat", price: "Rp7.000/kg" },
+            { name: "Cuci Kering & Setrika", price: "Rp10.000/kg" },
+            { name: "Setrika Saja", price: "Rp5.000/kg" },
+            { name: "Laundry Express (1 Hari)", price: "+Rp5.000/kg" },
+          ],
+          "Layanan Rumah Tangga": [
+            { name: "Bed Cover Single", price: "Rp7.000" },
+            { name: "Bed Cover King/Queen", price: "Rp30.000" },
+            { name: "Selimut", price: "Rp25.000" },
+            { name: "Gorden (per meter)", price: "Rp10.000" },
+            { name: "Karpet Kecil", price: "Rp30.000" },
+          ],
+          "Perawatan Khusus": [
+            { name: "Cuci Sepatu Reguler", price: "Rp25.000/pasang" },
+            { name: "Deep Clean Sepatu", price: "Rp40.000/pasang" },
+            { name: "Cuci Tas", price: "Rp30.000–50.000" },
+            { name: "Cuci Jaket/Coat", price: "Rp25.000–35.000" },
+            { name: "Cuci Boneka", price: "Rp20.000–35.000" },
+          ],
+          "Layanan Tambahan": [
+            { name: "Pewangi Premium", price: "Gratis" },
+            { name: "Antar-Jemput Laundry", price: "Gratis*" },
+            { name: "Express 6 Jam", price: "Rp30.000–50.000" },
+            { name: "Cuci Jaket/Coat", price: "+Rp10.000/kg" },
+          ],
+        };
+
+        return (
+          <section className="py-5 bg-light" id="hrg">
+            <div className="container">
+              <h2 className="text-center mb-5">Daftar Harga Layanan</h2>
+              <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {Object.entries(data).map(([title, items], index) => (
+                  <CardItem key={index} title={title} items={items} />
+                ))}
+                <div className="col">
+                  <div className="card h-100 shadow-sm text-center bg-primary text-white">
+                    <div className="card-body">
+                      <small className="d-block mb-3">
+                        *Gratis antar-jemput untuk jarak maksimal 5km atau minimal order Rp50.000.
+                      </small>
+                      <img
+                        src="isi/delivery.png"
+                        alt="Delivery"
+                        className="img-fluid"
+                        style={{ maxHeight: "150px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      };
+     
+const FormPesanan = () => {
+  return (
+    <section className="py-5 bg-pesan" id="pesan">
+      <div className="container">
+        <div className="row align-items-center g-4">
+          {/* Kolom Teks */}
+          <div className="col-lg-6 text-center text-lg-start">
+            <h1 className="fw-bold text-white">Cucian rumahmu sudah numpuk?</h1>
+            <p className="lead text-white">Tak perlu terlalu rajin. Jangan ragu untuk menghubungi kami!</p>
+          </div>
+
+          {/* Kolom Form */}
+          <div className="col-lg-6">
+            <div className="card-pesan shadow p-4">
+              <h2 className="text-center text-white mb-4">Isi Form Pesanan!</h2>
+              <form>
+                <div className="row g-3">
+                  <div className="col-md-6">
+                    <input type="text" className="form-control form-control-transparent" id="namalengkap" placeholder="Nama Lengkap" required />
+                  </div>
+                  <div className="col-md-6">
+                    <input type="text" className="form-control form-control-transparent" id="No" placeholder="No Whatsapp" required />
+                  </div>
+                  <div className="col-12">
+                    <input type="text" className="form-control form-control-transparent" id="Alamat" placeholder="Alamat" required />
+                  </div>
+                  <div className="col-md-6 text-white">
+                    <label htmlFor="tanggallahir" className="form-label">Tanggal Jemput</label>
+                    <input type="date" className="form-control form-control-transparent" id="tanggallahir" required />
+                  </div>
+                  <div className="col-md-6 text-white">
+                    <label htmlFor="tipe" className="form-label">Tipe Layanan</label>
+                    <select className="form-select custom-option-color" id="tipe" required>
+                      <option selected disabled>Pilih Layanan</option>
+                      <option>Daily Kiloan</option>
+                      <option>Cuci & Setrika</option>
+                      <option>Laundry Karpet</option>
+                      <option>Laundry Sepatu</option>
+                      <option>Laundry Tas</option>
+                      <option>Laundry Boneka</option>
+                      <option>Laundry Sprei</option>
+                      <option>Laundry Bedcover</option>
+                      <option>Laundry Gordyn</option>
+                    </select>
+                  </div>
+                  <div className="col-12">
+                    <input type="text" className="form-control form-control-transparent" id="pesan" placeholder="Pesan Tambahan" />
+                  </div>
+                </div>
+                <div className="text-center mt-4">
+                  <button type="submit" className="btn btn-primary px-5">Kirim Pesanan</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+const GaleriFoto = () => {
+  return (
+    <section className="py-5 bg-light" id="galeri">
+      <div className="container">
+        <h2 className="text-center mb-4">Galeri FreshClean Laundry</h2>
+        <div className="row g-3">
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g2.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 1" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g5.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 2" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g1.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 3" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g3.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 4" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g4.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 5" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g7.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 6" />
+          </div>
+          <div className="col-6 col-md-4 col-lg-3">
+            <img src="gl/g6.jpeg" className="img-fluid rounded shadow-sm zoom-hover" alt="Galeri 7" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+const Footer = () => {
+  return (
+    <footer className="footer-custom text-white py-3" id="contact">
+      <div className="container">
+        {/* Footer Bottom */}
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
+          <div className="d-flex align-items-center mb-3 mb-md-0">
+            <img
+              src="fc-logo.png"
+              alt="fc-logo"
+              style={{ width: "40px" }}
+              className="me-2"
+            />
+            <span className="fw-bold">FreshClean Laundry</span>
+          </div>
+          <span className="small">Designed by: sal.mann10</span>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+
+
+
+      const App = () => (
+        <>
+          <Navbar />
+          <HargaSection />
+          <FormPesanan />
+          <GaleriFoto />
+          <Footer />
+
+          
+        </>
+      );
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+</html>

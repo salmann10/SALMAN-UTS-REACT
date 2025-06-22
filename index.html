@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreshClean Laundry React</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+        <!-- link favicon -->
+        <link rel="shortcut icon" href="fc-logo.png" type="image/x-icon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React + ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    
+
+    <!-- React App -->
+    <script type="text/babel">
+      const Navbar = () => (
+        <nav className="navbar navbar-expand-lg navbar-light">
+          <div className="container-fluid d-flex justify-content-between align-items-center">
+            <a className="navbar-brand d-flex align-items-center" href="#">
+              <img src="fc-logo.png" alt="Logo" height="24" className="me-2" />
+              <span className="fw-bold">FreshClean</span>
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                <li className="nav-item"><a className="nav-link active" href="#home">Home</a></li>
+                <li className="nav-item"><a className="nav-link" href="#about">Tentang Kami</a></li>
+                <li className="nav-item"><a className="nav-link" href="#service">Layanan</a></li>
+                <li className="nav-item"><a className="nav-link" href="harga.html">Harga</a></li>
+                <li className="nav-item"><a className="nav-link" href="#testi">Testimoni</a></li>
+                <li className="nav-item"><a className="nav-link" href="harga.html#galeri">Galeri</a></li>
+                <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div className="d-none d-lg-block">
+              <a href="harga.html#pesan" className="btn btn-primary">Pesan Sekarang!</a>
+            </div>
+          </div>
+        </nav>
+      );
+
+      const Home = () => (
+        <section className="home py-5" id="home">
+          <div className="container">
+            <div className="row justify-content-center text-start">
+              <div className="col-lg-10">
+                <h1 className="display-5 fw-bold mb-4">Selamat datang di FreshClean Laundry!</h1>
+                <p className="lead mb-4">
+                  Capek liat cucian numpuk? Tenang, kamu nggak sendiri kok! Di FreshClean Laundry, kami hadir buat kamu yang pengen hidup lebih ringan dan wangi setiap hari. Tinggal antar atau duduk manis di rumah, cucian kamu kami urus sampai mulus!
+                </p>
+                <ul className="list-unstyled">
+                  <li className="mb-2"><strong>Super Cepat & Tepat Waktu</strong> – Pakaian kembali dalam waktu singkat!</li>
+                  <li className="mb-2"><strong>Pembersihan Maksimal</strong> – Kotoran, noda, sampe bau gak bakalan laku di sini.</li>
+                  <li className="mb-2"><strong>Pakaian Tetap Awet</strong> – Kami treat pakaian kamu dengan penuh cinta.</li>
+                  <li className="mb-4"><strong>Harga Friendly</strong> – Kualitas top, tapi harganya gak bikin kantong bolong.</li>
+                </ul>
+                <a href="#about" className="btn btn-warning btn-lg">Selengkapnya!</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+
+      const About = () => (
+        <section className="about py-5" id="about">
+          <div className="container">
+            <h1 className="text-left mb-5">Tentang Kami</h1>
+            <div className="row align-items-center mb-5">
+              <div className="col-lg-6 mb-4 mb-lg-0">
+                <img src="gb-about.png" alt="Tentang FreshClean" className="img-fluid rounded" />
+              </div>
+              <div className="col-lg-6">
+                <h2>Siapa sih FreshClean Laundry?</h2>
+                <p>
+                  FreshClean Laundry adalah layanan laundry kekinian yang hadir buat kamu yang nggak mau ribet urusan cucian. Kami ngerti banget di tengah kesibukan harian, nyuci dan nyetrika itu bisa jadi hal paling malesin. Nah, di sinilah kami masuk!
+                </p>
+              </div>
+            </div>
+            <div id="aboutCarousel" className="carousel slide" data-bs-ride="carousel">
+              <div className="carousel-inner text-center">
+                <div className="carousel-item active">
+                  <div className="p-4 shadow-sm">
+                    <h2>Misi Kami</h2>
+                    <p>
+                      Bikin hidup kamu lebih ringan dan wangi. Dari baju harian sampai bed cover jumbo, kami siap bantu. Karena kami percaya, baju bersih itu bukan cuma soal tampilan, tapi juga rasa nyaman dan percaya diri.
+                    </p>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <div className="p-4 shadow-sm">
+                    <h2>Kenapa Dipercaya?</h2>
+                    <ul className="list-unstyled">
+                      <li>Sudah dipercaya ratusan pelanggan di sekitar Kota Pekalongan</li>
+                      <li>Tim profesional & terlatih</li>
+                      <li>Proses cepat, rapi, dan selalu wangi</li>
+                      <li>Menggunakan deterjen ramah lingkungan</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="carousel-item">
+                  <div className="p-4 shadow-sm">
+                    <h2>Kami Bukan Sekadar Laundry</h2>
+                    <p>
+                      FreshClean bukan cuma tempat cuci baju — kami partner hidup kamu yang selalu siap bantu di balik layar. Selalu rapi, selalu tepat waktu, dan pastinya bikin hari kamu lebih enak dijalani.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#aboutCarousel" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon"></span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#aboutCarousel" data-bs-slide="next">
+                <span className="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+        </section>
+      );
+      const ServiceCard = ({ src, alt, title }) => (
+        <div className="col-6 col-md-3">
+          <div className="card text-center h-100 shadow-sm">
+            <img src={src} className="card-img-top p-3" alt={alt} />
+            <div className="card-layanan">
+              <h5 className="card-title">{title}</h5>
+            </div>
+          </div>
+        </div>
+      );
+
+      const Service = () => (
+        <section className="layanan py-5" id="service">
+          <div className="container">
+            <h1 className="text-left mb-5">LAYANAN</h1>
+
+            <h3 className="mb-4">Layanan Harian</h3>
+            <div className="row g-4 mb-5">
+              <ServiceCard src="isi/laundry-machine.png" alt="daily kiloan" title="Daily Kiloan" />
+              <ServiceCard src="isi/setrika.png" alt="cuci & setrika" title="Cuci & Setrika" />
+              <ServiceCard src="isi/kilat.png" alt="cuci kilat" title="Cuci Kilat" />
+              <ServiceCard src="isi/karpet.png" alt="laundry karpet" title="Laundry Karpet" />
+            </div>
+
+            <h3 className="mb-4">Layanan Barang Khusus</h3>
+            <div className="row g-4 mb-5">
+              <ServiceCard src="isi/shoes.png" alt="laundry sepatu" title="Laundry Sepatu" />
+              <ServiceCard src="isi/tas.png" alt="laundry tas" title="Laundry Tas" />
+              <ServiceCard src="isi/boneka.png" alt="laundry boneka" title="Laundry Boneka" />
+              <ServiceCard src="isi/sprei.png" alt="laundry sprei" title="Laundry Sprei" />
+            </div>
+
+            <h3 className="mb-4">Layanan Rumah Tangga</h3>
+            <div className="row g-4 mb-4">
+              <ServiceCard src="isi/bedcover.png" alt="laundry bedcover" title="Laundry Bedcover" />
+              <ServiceCard src="isi/bantal.png" alt="laundry sarung bantal" title="Laundry Sarung Bantal" />
+              <ServiceCard src="isi/gordyn.png" alt="laundry gordyn" title="Laundry Gordyn" />
+            </div>
+
+            <div className="text-center">
+              <a href="harga.html#pesan" className="btn btn-warning btn-lg">Pesan Sekarang!</a>
+            </div>
+          </div>
+        </section>
+      );
+
+      const TestimonialCard = ({ img, name, quote, desc }) => (
+        <div className="col-md-6">
+          <div className="card card-horizontal shadow-sm d-flex flex-row align-items-start p-2">
+            <img src={img} className="me-3 rounded" alt="testimonial" />
+            <div>
+              <h6 className="mb-1">{name}</h6>
+              <p className="mb-1">"{quote}"</p>
+              <small className="text-muted">{desc}</small>
+            </div>
+          </div>
+        </div>
+      );
+
+      const Testimoni = () => (
+        <section className="testimoni py-4 bg-light" id="testi">
+          <div className="container">
+            <div className="row g-3 justify-content-center">
+              <h1 className="text-left mb-5">TESTIMONI</h1>
+              <TestimonialCard
+                img="ts/magwayer.jpeg"
+                name="HARRY MAGUWAYER"
+                quote="Baju gue masuk ke FreshClean, keluar kayak baru dari iklan pewangi. Jujurly, pas gue buka plastiknya, langsung pengen ngelamar laundry-nya. Ini sih bukan cuma laundry, ini mah pengalaman spiritual."
+                desc="-aktor indosiar"
+              />
+              <TestimonialCard
+                img="ts/mudrik.jpeg"
+                name="EL DEAR GOD"
+                quote="Setrikaannya licin banget, nyaris bikin gue nggak pengen pake bajunya. Takut kusut. Tiap liat lipatan baju dari FreshClean, gue langsung sadar: tangan gue nggak akan bisa se-estetik ini."
+                desc="-filsuf olahraga"
+              />
+              <TestimonialCard
+                img="ts/antony.jpeg"
+                name="ANTONY GOAT"
+                quote="Titip cucian, pulangnya baju jadi wangi, hidup jadi lebih tenang. Serius, efeknya kayak meditasi. Apalagi laundry express-nya — gue bisa dapet baju bersih sebelum masalah hidup nyampe ke gue."
+                desc="-dewa football"
+              />
+              <TestimonialCard
+                img="ts/vini.jpeg"
+                name="PADUKA VINI JR."
+                quote="Laundry-nya cepet, bersih, wangi. Tapi kenapa hati ini masih nggak bisa bersih dari bayang-bayang dia? Untung FreshClean bisa move-on-in baju gue walau hati gue stuck di chat terakhir."
+                desc="-penulis buku tabungan"
+              />
+              <TestimonialCard
+                img="ts/sireng.jpeg"
+                name="SIR B. CHARLTON"
+                quote="Pertama kali ke sini karena promo. Kedua kali karena bajunya wangi. Ketiga kali karena kangen senyum mbaknya pas ambil laundry. Yang keempat, gue belum berani. Nanti dikira modus."
+                desc="-kuli proyek dadakan"
+              />
+            </div>
+          </div>
+        </section>
+      );
+
+      const Footer = () => (
+        <footer className="footer-custom text-white py-3" id="contact">
+          <div className="container">
+            <div className="row g-4">
+              <div className="col-md-4">
+                <h5 className="text-uppercase mb-3">Alamat</h5>
+                <p>
+                  JL. Sulawesi Kergon Gg.5a/16
+                  <br />Kelurahan Birmingham, Kecamatan East London
+                  <br />Kota London, Prov. UK Utara, United Kingdom.
+                </p>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-uppercase mb-3">FreshClean Laundry</h5>
+                <p>
+                  FreshClean Laundry adalah layanan laundry kekinian yang hadir
+                  buat kamu yang nggak mau ribet urusan cucian. Kami ngerti
+                  banget, di tengah kesibukan harian, nyuci dan nyetrika bisa
+                  jadi hal paling malesin. Nah, di sinilah kami masuk!
+                </p>
+              </div>
+              <div className="col-md-4">
+                <h5 className="text-uppercase mb-3">Contact Us</h5>
+                <ul className="list-unstyled">
+                  <li>
+                    <a
+                      href="http://wa.me/6287843155717"
+                      className="text-white text-decoration-none"
+                    >
+                      0878-4315-5717
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="text-white text-decoration-none">
+                      0812-3456-78
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/sal.mann10"
+                      className="text-white text-decoration-none"
+                    >
+                      @fresh.clean
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.facebook.com"
+                      className="text-white text-decoration-none"
+                    >
+                      Fresh Clean Laundry
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="mailto:freshclean@hoax.com"
+                      className="text-white text-decoration-none"
+                    >
+                      freshclean@hoax.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 pt-4 border-top border-secondary">
+              <div className="d-flex align-items-center mb-3 mb-md-0">
+                <img
+                  src="fc-logo.png"
+                  alt="fc-logo"
+                  style={{ width: "40px" }}
+                  className="me-2"
+                />
+                <span className="fw-bold">FreshClean Laundry</span>
+              </div>
+              <span className="small">Designed by: sal.mann10</span>
+            </div>
+          </div>
+        </footer>
+      );
+
+      const App = () => (
+        <div>
+          <Navbar />
+          <Home />
+          <About />
+          <Service />
+          <Testimoni />
+          <Footer />
+        </div>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+    </script>    
+</body>
+</html>
